@@ -109,7 +109,7 @@ ol li {
 
 @media (max-width: 768px){
   .center_div{
-    width: 55%;
+    width: 90%;
   }
 
   .todo_style .fa-times{
@@ -127,31 +127,3 @@ ol li {
   }
 }
 
-@media (max-width: 320px){
-  .center_div{
-    width: 90%;
-    height: 90vh;
-  }
-
-  .todo_style .fa-times{
-    margin: 0 15px 0 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  button{
-    margin-left: 10px;
-    min-height: 40px;
-    width: 40px;
-    color: #fff;
-    font-size: 30px;
-  }
-
-  h1{
-    font-size: 30px;
-  }
-
-  input{
-    font-size: 17px;
-  }
-}

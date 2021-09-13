@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Todolist from './Todolist';
+
+const getLocalItem = ()=>{
+  let list = localStorage.getItem('lists');
+  if(list){
+    return JSON.parse(localStorage.getItem('lists'));
+  }else{
+    return [];
+  }
+}
 
 function App() {
 
   const [inputList,setInputList] = useState("");
-  const [items,setItems] = useState([]);
+  const [items,setItems] = useState(getLocalItem());
 
   const itemEvent = (event)=> {
       setInputList(event.target.value);
   };
 
   const listOfItems = ()=>{
-      if(inputList!=""){
+      if(inputList!==""){
         setItems((oldItems)=>{
           return [...oldItems, inputList];
         });
+      }else{
+        alert("Eneter Data first");
       }
-
       setInputList("");
   };
 
@@ -27,6 +37,11 @@ function App() {
         })
       })
   };
+
+  useEffect(()=>{
+      localStorage.setItem("lists",JSON.stringify(items));
+  },[items]);
+
 
   return (
     <>
